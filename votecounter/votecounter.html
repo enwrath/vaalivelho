@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>Ääntenlaskijasimulaattori</title>
+    <script src="votecounter.js"></script>
+    <meta charset="UTF-8">
+  </head>
+  <body onload="init()">
+	<p>Ota vaalilippu vasemmanpuoleisesta laatikosta, laske ääni ja laita lippu oikeanpuoleiseen laatikkoon.
+	 Toista kunnes olet saanut ääntenlaskun suoritettua.
+	 <br>
+	 Kirjoita ehdokkaiden saamat äänet omiin laatikkoihinsa ja klikkaa lopuksi Valmis-nappia.</p>
+	 <br>
+	<div id="gameDiv">
+		<img id="leftImg" src="images/votebox.png" onclick="clicked(0)">
+		<img id="rightImg" src="images/votebox2.png" onclick="clicked(1)">
+		<div id="voteDiv">
+			<div id="voteLeft">
+				<span>Testivaalit 2019</div>
+			<div id="voteRight">
+				<span id="currentVote"></span>
+			</div>
+		</div>
+		<form>
+		  Ehdokas 2:<input type="number" id="result2" min="0">
+		  Ehdokas 3:<input type="number" id="result3" min="0">
+		  <input type="button" value="Valmis" onclick="submitAnswer()" >
+		</form>
+	</div>
+	<div>
+		<p id="resultText"></p>
+	</div>
+</body>
+</html>
