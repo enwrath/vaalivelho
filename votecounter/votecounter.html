@@ -1,6 +1,7 @@
 <html>
   <head>
     <title>Ääntenlaskijasimulaattori</title>
+	<link rel="stylesheet" href="votecounter.css">
     <script src="votecounter.js"></script>
     <meta charset="UTF-8">
   </head>
@@ -11,20 +12,29 @@
 	 Kirjoita ehdokkaiden saamat äänet omiin laatikkoihinsa ja klikkaa lopuksi Valmis-nappia.</p>
 	 <br>
 	<div id="gameDiv">
-		<img id="leftImg" src="images/votebox.png" onclick="clicked(0)">
-		<img id="rightImg" src="images/votebox2.png" onclick="clicked(1)">
-		<div id="voteDiv">
-			<div id="voteLeft">
-				<span>Testivaalit 2019</div>
-			<div id="voteRight">
-				<span id="currentVote"></span>
-			</div>
+		<div class="gameDivRow">
+			<img id="leftImg" src="images/votebox.png" onclick="clicked(0)">
+			<img id="rightImg" src="images/votebox2.png" onclick="clicked(1)">
 		</div>
-		<form>
-		  Ehdokas 2:<input type="number" id="result2" min="0">
-		  Ehdokas 3:<input type="number" id="result3" min="0">
-		  <input type="button" value="Valmis" onclick="submitAnswer()" >
-		</form>
+		<div class="gameDivRow">
+			<div class="voteSlipHalf">
+				<span id="electionName">Testivaalit 2019</span>
+			</div>
+			<div class="voteSlipHalf">
+				<span id="currentVote"></span>
+				<span id="blackCircle"></span>
+			</div>
+			<form>
+				<span>Äänestyksen tulos:</span>
+				<div class="formRow">
+					<label for="result2">Ehdokas 2:</label><input type="number" id="result2" min="0">
+				</div>
+				<div class="formRow">
+					<label for="result3">Ehdokas 3:</label><input type="number" id="result3" min="0">
+				</div>
+			  <input type="button" value="Valmis" onclick="submitAnswer()" >
+			</form>
+		</div>
 	</div>
 	<div>
 		<p id="resultText"></p>

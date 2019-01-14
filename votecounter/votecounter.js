@@ -37,7 +37,7 @@ function showVote() {
 }
 
 function hideVote() {
-	currentVote.textContent = "";
+	currentVote.textContent = " ";
 }
 
 function submitAnswer() {
