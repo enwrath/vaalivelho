@@ -1,12 +1,12 @@
 var state = 0; //0 = no vote visible, 1 = vote in middle, 
-var leftImg, rightImg, midImg, currentVote, resultText, voteSlips;
+var leftBtn, rightBtn, midImg, currentVote, resultText, voteSlips;
 var votes = [2, 3, 2, 3, 3]; //Randomly create of preset situations?
 var res2 = 2, res3 = 3;
 var vote = -1;
 
 function init() {
-	leftImg = document.getElementById("leftImg");
-    rightImg = document.getElementById("rightImg");
+	leftBtn = document.getElementById("leftButton");
+    rightBtn = document.getElementById("rightButton");
     midImg = document.getElementById("midImg");
     currentVote = document.getElementById("currentVote");
     resultText = document.getElementById("resultText");
@@ -18,7 +18,6 @@ function getNextVote() {
 		vote++;
 		showVote();
 	}
-	//Change the image when amount of votes left changes to some %
 }
 
 function clicked(number) {
@@ -32,16 +31,27 @@ function clicked(number) {
 	}
 }
 
+function switchDisabledButton() {
+	leftBtn.disabled = !leftBtn.disabled;
+	rightBtn.disabled = !rightBtn.disabled;
+}
+
 function showVote() {
 	currentVote.textContent = votes[vote];
 	for (var i = 0; i < voteSlips.length; i++) {
 		voteSlips[i].style.visibility = "visible";
 	}
+	switchDisabledButton();
 }
 
 function hideVote() {
 	for (var i = 0; i < voteSlips.length; i++) {
 		voteSlips[i].style.visibility = "hidden";
+	}
+	switchDisabledButton();
+	if (vote >= votes.length - 1) {
+		leftBtn.disabled = true;
+		//Explain that all votes have been seen
 	}
 }
 

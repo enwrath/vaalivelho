@@ -6,7 +6,7 @@ body {
 }
 
 #gameDiv {
-	background: green;
+	background: yellow;
 	height: 100%;
 }
 
@@ -19,8 +19,30 @@ body {
 	text-align: center;
 }
 
-.gameDivRow > img {
+.buttonDiv {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 	margin: 2rem auto;
+}
+
+button {
+	border-radius: 1rem;
+	border: none;
+	height: 2rem;
+	background-color: rgba(64, 150, 0, 0.75);
+}
+
+button:hover {
+    background-color: rgba(64, 150, 0, 1);
+}
+
+button:disabled {
+	background-color: rgba(150, 32, 0, 0.75);
+}
+
+button:disabled:hover {
+	background-color: rgba(150, 32, 0, 1);
 }
 
 .voteSlipHalf {
@@ -54,7 +76,7 @@ body {
 	z-index: 2;
 }
 
-#blackCircle {
+.blackCircle {
 	border-radius: 50%;
 	display: inline-block;
 	width: 4.5rem;

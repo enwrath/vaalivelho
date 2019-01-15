@@ -13,8 +13,14 @@
 	 <br>
 	<div id="gameDiv">
 		<div class="gameDivRow">
-			<img id="leftImg" src="images/votebox.png" onclick="clicked(0)">
-			<img id="rightImg" src="images/votebox2.png" onclick="clicked(1)">
+			<div class="buttonDiv">
+				<button id="leftButton" onclick="clicked(0)">Seuraava äänestyslippu</button>
+				<span>Pyydä sihteeriä tuomaan seuraava äänestyslipuke.</span>
+			</div>
+			<div class="buttonDiv">
+				<button id="rightButton" onclick="clicked(1)" disabled>Arkistoi äänestyslippu</button>
+				<span>Pyydä sihteeriä arkistoimaan pöydällä oleva äänestyslipuke.</span>
+			</div>
 		</div>
 		<div class="gameDivRow">
 			<div class="voteSlipHalf" id="leftSlip">
@@ -22,7 +28,7 @@
 			</div>
 			<div class="voteSlipHalf">
 				<span id="currentVote"></span>
-				<span id="blackCircle"></span>
+				<span class="blackCircle"></span>
 			</div>
 			<form>
 				<span>Äänestyksen tulos:</span>
