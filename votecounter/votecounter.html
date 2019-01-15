@@ -7,7 +7,7 @@
   </head>
   <body onload="init()">
 	<p>Ota vaalilippu vasemmanpuoleisesta laatikosta, laske ääni ja laita lippu oikeanpuoleiseen laatikkoon.
-	 Toista kunnes olet saanut ääntenlaskun suoritettua.
+	 Toista kunnes olet saanut ääntenlaskun suoritettua. (Klikkaa vasenta laatikkoa, lue äänestyslipusta numero, klikkaa oikeaa laatikkoa)
 	 <br>
 	 Kirjoita ehdokkaiden saamat äänet omiin laatikkoihinsa ja klikkaa lopuksi Valmis-nappia.</p>
 	 <br>
@@ -17,7 +17,7 @@
 			<img id="rightImg" src="images/votebox2.png" onclick="clicked(1)">
 		</div>
 		<div class="gameDivRow">
-			<div class="voteSlipHalf">
+			<div class="voteSlipHalf" id="leftSlip">
 				<span id="electionName">Testivaalit 2019</span>
 			</div>
 			<div class="voteSlipHalf">

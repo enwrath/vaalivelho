@@ -1,5 +1,5 @@
 var state = 0; //0 = no vote visible, 1 = vote in middle, 
-var leftImg, rightImg, midImg, currentVote, resultText;
+var leftImg, rightImg, midImg, currentVote, resultText, voteSlips;
 var votes = [2, 3, 2, 3, 3]; //Randomly create of preset situations?
 var res2 = 2, res3 = 3;
 var vote = -1;
@@ -10,6 +10,7 @@ function init() {
     midImg = document.getElementById("midImg");
     currentVote = document.getElementById("currentVote");
     resultText = document.getElementById("resultText");
+    voteSlips = document.getElementsByClassName("voteSlipHalf");
 }
 
 function getNextVote() {
@@ -21,7 +22,6 @@ function getNextVote() {
 }
 
 function clicked(number) {
-	console.log(number);
 	if (number == 0 && state == 0) {
 		getNextVote();
 		state = 1;
@@ -34,10 +34,15 @@ function clicked(number) {
 
 function showVote() {
 	currentVote.textContent = votes[vote];
+	for (var i = 0; i < voteSlips.length; i++) {
+		voteSlips[i].style.visibility = "visible";
+	}
 }
 
 function hideVote() {
-	currentVote.textContent = " ";
+	for (var i = 0; i < voteSlips.length; i++) {
+		voteSlips[i].style.visibility = "hidden";
+	}
 }
 
 function submitAnswer() {
