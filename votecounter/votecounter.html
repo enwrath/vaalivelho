@@ -10,15 +10,24 @@
 	 Toista kunnes olet saanut ääntenlaskun suoritettua. (Klikkaa vasenta laatikkoa, lue äänestyslipusta numero, klikkaa oikeaa laatikkoa)
 	 <br>
 	 Kirjoita ehdokkaiden saamat äänet omiin laatikkoihinsa ja klikkaa lopuksi Valmis-nappia.</p>
-	 <br>
+	<br>
+	<div id="menuDiv">
+		<p>Valitse vaali, jossa toimit ääntenlaskijana:</p>
+		<button onclick="startGame('easy')">Keijukylän yläasteen oppilaskuntavaalit</button>
+		<button onclick="startGame('medium')">Leikkivaalit</button>
+	</div>
+	<div id="resultDiv">
+		<p id="resultText"></p>
+		<button onclick="returnToMenu()">Takaisin alkuvalikkoon</button>
+	</div>
 	<div id="gameDiv">
 		<div class="gameDivRow">
 			<div class="buttonDiv">
-				<button id="leftButton" onclick="clicked(0)">Seuraava äänestyslippu</button>
+				<button class="igButton" id="leftButton" onclick="clicked(0)">Seuraava äänestyslippu</button>
 				<span>Pyydä sihteeriä tuomaan seuraava äänestyslipuke.</span>
 			</div>
 			<div class="buttonDiv">
-				<button id="rightButton" onclick="clicked(1)" disabled>Arkistoi äänestyslippu</button>
+				<button class="igButton" id="rightButton" onclick="clicked(1)" disabled>Arkistoi äänestyslippu</button>
 				<span>Pyydä sihteeriä arkistoimaan pöydällä oleva äänestyslipuke.</span>
 			</div>
 		</div>
@@ -30,20 +39,11 @@
 				<span id="currentVote"></span>
 				<span class="blackCircle"></span>
 			</div>
-			<form>
+			<form id="resultForm">
 				<span>Äänestyksen tulos:</span>
-				<div class="formRow">
-					<label for="result2">Ehdokas 2:</label><input type="number" id="result2" min="0">
-				</div>
-				<div class="formRow">
-					<label for="result3">Ehdokas 3:</label><input type="number" id="result3" min="0">
-				</div>
-			  <input type="button" value="Valmis" onclick="submitAnswer()" >
+			  <input type="button" id="formButton" value="Valmis" onclick="submitAnswer()" >
 			</form>
 		</div>
-	</div>
-	<div>
-		<p id="resultText"></p>
 	</div>
 </body>
 </html>

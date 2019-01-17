@@ -1,8 +1,32 @@
 var state = 0; //0 = no vote visible, 1 = vote in middle, 
-var leftBtn, rightBtn, midImg, currentVote, resultText, voteSlips;
-var votes = [2, 3, 2, 3, 3]; //Randomly create of preset situations?
-var res2 = 2, res3 = 3;
-var vote = -1;
+var leftBtn, rightBtn, currentVote, resultText, voteSlips, gameDiv, menuDiv, electionName, resultDiv, formButton;
+var vote, level, state;
+var resultInputs = {};
+
+var levels = {
+	easy: {
+		votes: [2, 3, 2, 3, 3],
+		results: {
+			2: 2,
+			3: 3
+		},
+		name: "Keijukylän yläasteen oppilaskuntavaalit",
+		winMsg: "Laskit äänen oikein ja sait opettajalta omenan palkaksi!",
+		lossMsg: 'Tarkistuslaskennassa selvisi, että laskit äänet väärin. Koulun kingi sanoo: "Välitunnilla tavataan, demokratian vihaaja..."'
+	},
+	medium: {
+		votes: [2, 4, 5],
+		results: {
+			2: 1,
+			3: 0,
+			4: 1,
+			5: 1
+		},
+		name: "Leuluvaalit",
+		winMsg: "Laskit äänen oikein ja sait opettajalta omenan palkaksi!",
+		lossMsg: 'Koulun kingi sanoo: "Välitunnilla tavataan, demokratian vihaaja..."'
+	}
+};
 
 function init() {
 	leftBtn = document.getElementById("leftButton");
@@ -11,10 +35,41 @@ function init() {
     currentVote = document.getElementById("currentVote");
     resultText = document.getElementById("resultText");
     voteSlips = document.getElementsByClassName("voteSlipHalf");
+    gameDiv = document.getElementById("gameDiv");
+    menuDiv = document.getElementById("menuDiv");
+    resultDiv = document.getElementById("resultDiv");
+    formButton = document.getElementById("formButton");
+	electionName = document.getElementById("electionName");
+}
+
+function startGame(levelName) {
+	//Remove old inputs from result form
+	var oldFormNames = document.getElementsByClassName("formRow");
+	for (var i = oldFormNames.length-1; i >= 0; i--) {
+		oldFormNames[i].parentNode.removeChild(oldFormNames[i]);
+	}
+	menuDiv.style.display = "none";
+	gameDiv.style.display = "block";
+	level = levelName;
+	vote = -1;
+	state = 0;
+	electionName.textContent = levels[level].name;
+	populateResultForm();
+}
+
+function populateResultForm() {
+	Object.keys(levels[level].results).forEach(function(e) {
+		formButton.insertAdjacentHTML('beforebegin', '<div class="formRow"><label for="'+e+'">Ehdokas '+e+':</label><input type="number" id="'+e+'" min="0"></div>');
+	});
+}
+
+function returnToMenu() {
+	resultDiv.style.display = "none";
+	menuDiv.style.display = "block";
 }
 
 function getNextVote() {
-	if (vote < votes.length - 1) {
+	if (vote < levels[level].votes.length - 1) {
 		vote++;
 		showVote();
 	}
@@ -37,7 +92,7 @@ function switchDisabledButton() {
 }
 
 function showVote() {
-	currentVote.textContent = votes[vote];
+	currentVote.textContent = levels[level].votes[vote];
 	for (var i = 0; i < voteSlips.length; i++) {
 		voteSlips[i].style.visibility = "visible";
 	}
@@ -49,15 +104,19 @@ function hideVote() {
 		voteSlips[i].style.visibility = "hidden";
 	}
 	switchDisabledButton();
-	if (vote >= votes.length - 1) {
+	if (vote >= levels[level].votes.length - 1) {
 		leftBtn.disabled = true;
 		//Explain that all votes have been seen
 	}
 }
 
 function submitAnswer() {
-	var r2 = document.getElementById("result2").value;
-	var r3 = document.getElementById("result3").value;
-	if (r2 == res2 && r3 == res3) resultText.textContent = "Laskit oikein ja pelastit demokratian!"
-	else resultText.textContent = "Tarkistuslaskussa selvisi laskuissasi tekemäsi virhe. Olet uhka demokratiallemme ja pääset uudelleenkoulutusleirille!";
+	var victory = true;
+	Object.keys(levels.easy.results).forEach(function(e) {
+			if (levels[level].results[e] != document.getElementById(e).value) victory = false;
+	});
+	if (victory) resultText.textContent = levels[level].winMsg;
+	else resultText.textContent = levels[level].lossMsg;
+	gameDiv.style.display = "none";
+	resultDiv.style.display = "block";
 }

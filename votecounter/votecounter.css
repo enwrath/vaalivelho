@@ -5,7 +5,12 @@ body {
 	height: 100%;
 }
 
+#resultDiv {
+	display: none;
+}
+
 #gameDiv {
+	display: none;
 	background: yellow;
 	height: 100%;
 }
@@ -26,7 +31,7 @@ body {
 	margin: 2rem auto;
 }
 
-button {
+.igButton {
 	border-radius: 1rem;
 	border: none;
 	height: 2rem;
@@ -51,8 +56,8 @@ button:disabled:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 8rem;
-	height: 12rem;
+	width: 12rem;
+	height: 18rem;
 	visibility: hidden;
 }
 #leftSlip {
