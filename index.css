@@ -2,7 +2,15 @@
 	overflow: hidden;
 	display: flex;
 	height: 8rem;
-	background-color: brown;
+	animation: colorflash 3s linear 0s infinite normal;
+}
+
+@keyframes colorflash {
+	0%   { background-color: red; }
+	25%   { background-color: yellow; }
+	50%   { background-color: green; }
+	75%   { background-color: blue; }
+    100% { background-color: red; }
 }
 
 .marquee > img {
