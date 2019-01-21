@@ -2,16 +2,29 @@ body {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	background: #ffd7c3;
 	height: 100%;
+}
+
+#menuDiv {
+	font-size: 1.5rem;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+#menuDiv > button {
+	margin-top: 1rem;
 }
 
 #resultDiv {
 	display: none;
+	font-size: 1.5rem;
+	text-align: center;
 }
 
 #gameDiv {
 	display: none;
-	background: yellow;
 	height: 100%;
 }
 
@@ -31,10 +44,10 @@ body {
 	margin: 2rem auto;
 }
 
-.igButton {
+button {
 	border-radius: 1rem;
 	border: none;
-	height: 2rem;
+	height: 4rem;
 	background-color: rgba(64, 150, 0, 0.75);
 }
 

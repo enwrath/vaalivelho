@@ -1,7 +1,6 @@
 var state = 0; //0 = no vote visible, 1 = vote in middle, 
 var leftBtn, rightBtn, currentVote, resultText, voteSlips, gameDiv, menuDiv, electionName, resultDiv, formButton;
 var vote, level, state;
-var resultInputs = {};
 
 var levels = {
 	easy: {
@@ -25,6 +24,17 @@ var levels = {
 		name: "Leuluvaalit",
 		winMsg: "Laskit äänen oikein ja sait opettajalta omenan palkaksi!",
 		lossMsg: 'Koulun kingi sanoo: "Välitunnilla tavataan, demokratian vihaaja..."'
+	},
+	hard: {
+	votes: [1,1,2,1,3,1,1,1,1,1,1,1,2,2,3,2,1,1,2,3,1,1,1,3,1,1,2,2,3,1,3,1,3,3,2,1,3,1,1,1,1,2,2,1,2,3,3,3,1,2,2,1,1,3,1,2,2,2,1,1,1,1,3,1,1,2,3,1,1,1,1,3,3,3,1,2,1,1,1,2,2,1,2,1,1,1,1,1,1,1,3,1,1,3,3,3,1,2,1,1,3,1,3,2,2,1,1,1,1,1,2,1,3,3,1,3,3,2,3,1,1,1,1,2,1,3,3,1,2,1,2,1,2,1,2,1,1,1,2,2,1,1,2,1,2,3,1,1,1,1,3,3,3,1,2,1,1,1,1,1,3,2,1,1,1,1,3,2,1,1,1,1,1,1,2,1,1,1,2,1,1,1,1,1,1,1,1,1,2,1,1,1,1,2,3,2,1,1,2,2,1,1,2,2,1,1,1,1,1,3,1,1,2,1,1,1,1,2,3,3,2,1,1,1,1,1,2,1,1,3,1,3,1,1,1,1,2,2,2,2,1,3,2,3,2,2,1,1,1,1,1,1,2,2,2,2,2,1,3,1,3,1,3,2,3,1,2,1,1,1,3,1,1,2,2,1,1,2,1,1,1,1,3,1,1,2,1,1,1,1,1,1,1,3,1,1,1,2,1,1,1,1,1,3,1,3,1,1,3,1,2,2,3,3,1,1,1,2,2,3,1,3,2,2,2,1,2,2,2,2,1,3,3,2,1,1,1,3,1,3,1,3,1,2,1,1,1,1,1,1,3,1,1,1,1,1,1,1,2,1,1,2,3,1,1,2,3,1,1,1,1,2,1,3,2,2,3,1,3,3,2,1,2,1,1,1,2,3,3,1,3,2,1,2,2,1,1,1,1,1,2,1,2,3,2,1,3,2,1,1,2,1,1,1,2,1,1,1,2,3,1,1,3,1,1,1,1,1,1,1,1,2,2,1,2,1,2,1,1,1,1,3,2,1,1,2,1,3,3,1,3,1,1,1,3,1,1,3,1,1,2],
+		results: {
+			1: 268,
+			2: 109,
+			3: 84
+		},
+		name: "Kunnioitetun suurjohtajan valitsemisvaalit",
+		winMsg: "Tarkistuslaskenta ja kansainväliset tarkkailijat ovat hyväksyneet tulokset. Palkkioksi pääset eläkkeelle jo 88-vuotiaana.",
+		lossMsg: "Tarkistuslaskennassa paljastui ongelmia tuloksessa. Salainen palvelu tutkii asiaa ja odottaessa pääset uudelleenkoulutusleirille."
 	}
 };
 
@@ -54,6 +64,12 @@ function startGame(levelName) {
 	vote = -1;
 	state = 0;
 	electionName.textContent = levels[level].name;
+	//Reset buttons and voteslip visibility etc
+	leftBtn.disabled = false;
+	rightBtn.disabled = true;
+	for (var i = 0; i < voteSlips.length; i++) {
+		voteSlips[i].style.visibility = "hidden";
+	}
 	populateResultForm();
 }
 
@@ -65,7 +81,7 @@ function populateResultForm() {
 
 function returnToMenu() {
 	resultDiv.style.display = "none";
-	menuDiv.style.display = "block";
+	menuDiv.style.display = "flex";
 }
 
 function getNextVote() {
