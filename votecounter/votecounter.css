@@ -42,9 +42,12 @@ body {
 	flex-direction: column;
 	justify-content: center;
 	margin: 2rem auto;
+	width: 100%;
 }
 
 button {
+	width: 95%;
+	margin: 0 auto;
 	border-radius: 1rem;
 	border: none;
 	height: 4rem;
@@ -69,8 +72,8 @@ button:disabled:hover {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	width: 12rem;
-	height: 18rem;
+	width: 18rem;
+	height: 27rem;
 	visibility: hidden;
 }
 #leftSlip {
@@ -85,11 +88,12 @@ button:disabled:hover {
 }
 
 #currentVote {
-	font-size: 3rem;
+	font-size: 4rem;
 	border-radius: 50%;
 	display: inline-block;
-	width: 4rem;
-	height: 4rem;
+	width: 7.5rem;
+	height: 7.5rem;
+	line-height: 7.5rem;
 	background-color: white;
 	z-index: 2;
 }
@@ -97,10 +101,10 @@ button:disabled:hover {
 .blackCircle {
 	border-radius: 50%;
 	display: inline-block;
-	width: 4.5rem;
-	height: 4.5rem;
+	width: 8rem;
+	height: 8rem;
 	background-color: black;
-	margin-left: -4.25rem;
+	margin-left: -7.75rem;
 	z-index: 1;
 }
 

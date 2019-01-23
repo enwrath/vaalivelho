@@ -10,8 +10,8 @@
 		<p>Suomelan kansallisdemokraattisessa suurvallassa on tänään tärkeä päivä: vaalit! Sinut on valittu ääntenlaskijaksi. Valitse haluamasi vaalit seuraavasti vaihtoehdoista:
 		</p>
 		<button onclick="startGame('easy')">Keijukylän yläasteen oppilaskuntavaalit (5 ääntä)</button>
-		<button onclick="startGame('medium')">teslitj</button>
-		<button onclick="startGame('hard')">Kunnioitetun suurjohtajan valitsemisvaalit - Keijukylän äänet (461)</button>
+		<button onclick="startGame('medium')">Keijukylän kylänvanhimpien vanhimmuusäänestys (20 ääntä)</button>
+		<button onclick="startGame('hard')">Kunnioitetun suurjohtajan valitsemisvaalit - Keijukylän äänet (461 ääntä)</button>
 	</div>
 	<div id="resultDiv">
 		<p id="resultText"></p>
@@ -20,11 +20,11 @@
 	<div id="gameDiv">
 		<div class="gameDivRow">
 			<div class="buttonDiv">
-				<button class="igButton" id="leftButton" onclick="clicked(0)">Seuraava äänestyslippu</button>
+				<button id="leftButton" onclick="clicked(0)">Seuraava äänestyslippu</button>
 				<span>Pyydä sihteeriä tuomaan seuraava äänestyslipuke.</span>
 			</div>
 			<div class="buttonDiv">
-				<button class="igButton" id="rightButton" onclick="clicked(1)" disabled>Arkistoi äänestyslippu</button>
+				<button id="rightButton" onclick="clicked(1)" disabled>Arkistoi äänestyslippu</button>
 				<span>Pyydä sihteeriä arkistoimaan pöydällä oleva äänestyslipuke.</span>
 			</div>
 		</div>
