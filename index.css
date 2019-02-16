@@ -70,3 +70,20 @@
     0% { z-index: 3;}
     100% { z-index: 0;}
 }
+
+.linktext {
+	font-size: 2em;
+}
+.articleclass {
+	color: red;
+	font-size: 1em;
+}
+.articlelink {
+	background-color: yellow;
+	border-style: outset;
+	width: 75%;
+	padding-bottom: 0.25em;
+}
+.body {
+	background-color: green;
+}
