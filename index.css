@@ -87,3 +87,19 @@
 body {
 	background-color: rgb(235, 255, 200);
 }
+.articleimage {
+	height: 16em;
+	border-style: solid;
+}
+
+.imagecontainer {
+	border-style: solid;
+	padding: 0.5em;
+	display: inline-block;
+	background-color: rgb(200, 235, 255);
+	text-align: center;
+}
+
+.articletext {
+	max-width: 50em;
+}
