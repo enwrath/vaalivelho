@@ -84,6 +84,6 @@
 	width: 75%;
 	padding-bottom: 0.25em;
 }
-.body {
-	background-color: green;
+body {
+	background-color: rgb(235, 255, 200);
 }
