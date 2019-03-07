@@ -34,5 +34,17 @@ var questions = [
 	'vas': 0,
 	'ps': 1,
 	'sin': 1
+	},
+	{
+	'text': 'Ilmastonmuutos voidaan hyvin jättää seuraavien sukupolvien ongelmaksi.',
+	'sdp': 2,
+	'kesk': 2,
+	'kok': 2,
+	'kd': 2,
+	'rkp': 2,
+	'vihr': 0,
+	'vas': 1,
+	'ps': 3,
+	'sin': 2
 	}
 ];
