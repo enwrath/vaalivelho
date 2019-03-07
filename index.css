@@ -103,3 +103,8 @@ body {
 .articletext {
 	max-width: 50em;
 }
+
+.firenew {
+	color: red;
+	background-color: yellow;
+}

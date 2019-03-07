@@ -1,0 +1,25 @@
+<html>
+  <head>
+    <title>Vaalikone</title>
+  <link rel="stylesheet" href="vaalikone.css">
+    <script src="kysymyslista.js"></script>
+    <script src="vaalikone.js"></script>
+    <meta charset="UTF-8">
+  </head>
+  <body onload="initStuff()">
+    <p>Perinteinen vaalikone. Valitse mielipiteesi ja kone kertoo sinulle parhaiten sopivimman puolueen.</p>
+    <br>
+    <div id="questionArea">
+      <h3 id="qtext">Tähän tulee kysymys.</h3>
+      <button class="answerBtn" onclick="userAnswer(0)">😨</button>
+      <button class="answerBtn" onclick="userAnswer(1)">☹️</button>
+      <button class="answerBtn" onclick="userAnswer(2)">🙂</button>
+      <button class="answerBtn" onclick="userAnswer(3)">😍</button>
+    </div>
+    <div id="resultArea">
+      <h3 id="rtext">Sinulle sopivin puolue on </h3>
+      <img id="rimg" src="" />
+      <p id="rtext2">muut puolueet</p>
+    </div>
+  </body>
+</html>

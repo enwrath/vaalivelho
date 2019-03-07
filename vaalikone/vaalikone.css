@@ -1,0 +1,30 @@
+.answerBtn {
+    width: 2em;
+    height: 2em;
+    border-radius: 50%;
+    border: none;
+    background-color: rgba(64, 128, 200, 0.5);
+    margin-right: 1em;
+    font-size: 3em;
+}
+
+.answerBtn:hover {
+    background-color: rgba(64, 128, 200, 1);
+}
+.helptext {
+	width: 4em;
+}
+#resultArea {
+	display: none;
+}
+#rimg {
+	width: 45%;
+	height: auto;
+}
+#rtext2 {
+	white-space: pre;
+}
+body {
+	text-align: center;
+	background-color: rgb(235, 255, 200);
+}
