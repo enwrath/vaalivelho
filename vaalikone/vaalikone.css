@@ -1,0 +1,25 @@
+.answerBtn {
+        width: 4em;
+        height: 4em;
+        border-radius: 50%;
+        border: none;
+        background-color: rgba(64, 0, 150, 0.5);
+        margin-right: 1em;
+}
+
+.answerBtn:hover {
+    background-color: rgba(64, 0, 150, 1);
+}
+.helptext {
+	width: 4em;
+}
+#resultArea {
+	display: none;
+}
+#rimg {
+	width: 45%;
+	height: auto;
+}
+#rtext2 {
+	white-space: pre;
+}
