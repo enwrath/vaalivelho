@@ -4,6 +4,7 @@ body {
 	justify-content: center;
 	background: #ffd7c3;
 	height: 100%;
+	padding: 0.5em 1em;
 }
 
 #menuDiv {

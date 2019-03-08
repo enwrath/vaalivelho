@@ -31,4 +31,5 @@
 body {
 	text-align: center;
 	background-color: rgb(235, 255, 200);
+    padding: 0.5em 1em;
 }
