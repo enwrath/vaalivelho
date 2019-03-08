@@ -97,7 +97,7 @@ function showResults() {
 	    return a[1] - b[1];
 	});
 
-	rtext.textContent = 'Sinulle sopivin puolue on ' + parties[results[0][0]].name;
+	rtext.textContent = 'Sinulle sopivin puolue on \r\n\r\n' + parties[results[0][0]].name;
 	rimg.src = parties[results[0][0]].img;
 	rtext2.textContent = 'Loput puolueet sopivuusjärjestyksessä:\r\n\r\n';
 	for (var i = 1; i < results.length; i++) {

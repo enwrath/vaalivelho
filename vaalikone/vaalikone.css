@@ -10,6 +10,7 @@
 
 .answerBtn:hover {
     background-color: rgba(64, 128, 200, 1);
+    cursor: pointer;
 }
 .helptext {
 	width: 4em;
@@ -18,8 +19,11 @@
 	display: none;
 }
 #rimg {
-	width: 45%;
-	height: auto;
+	width: auto;
+	height: 40%;
+}
+#rtext {
+    white-space: pre;
 }
 #rtext2 {
 	white-space: pre;
